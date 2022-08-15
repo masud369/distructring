@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array n obj distructuring</title>
+</head>
+<body>
+    
+
+    <h2>all in console</h2>
+
+    <script> 
+        console.log("hello testing javascript");
+        const aray1 = [1,2,3,4,5,6,7];
+        //distrcutring
+        const [a, ,b, ...rest] = aray1;
+        // console.log(a,b);
+        // console.log(rest);
+
+        const array2 = ["a","b","c","d","e","f"];
+        const newArray = [array2,aray1];
+        const createNewArray = [...array2, ...aray1]; // or array2.conat(aray1)
+        console.log(newArray);
+        console.log(createNewArray);
+
+        //Distrecturing paramiter
+        const math = (num,num2)=>{
+            return [num+num2, num*num2, num2/num];
+        }
+        const [sum, multiply, divition = "notching found!"] = math(2,3);
+
+        console.log(sum);
+        console.log(multiply);
+        console.log(divition);
+        //Distructuring object
+        const person1 = {
+            name: "masud",
+            age:25,
+            address: {
+                district:"satkhira",
+                subdistrict:"debhata",
+
+            }
+        }
+        const person2 = {
+            name: "rana",
+            age:26,
+            address: {
+                district:"satkhira",
+                subdistrict:"debhata",
+
+            }
+        }
+        const {name, favouriteFood = "not defind",  address: {district}} = person1;
+        console.log(name);
+        console.log(favouriteFood);
+        console.log(district);
+//concatining object
+        const person3 = {...person1, ...person2};
+        const person4 = {person1,person2};
+        // const person5 = person1.concate(person2)
+        console.log(person3);
+        console.log(person4);
+        // console.log(person5);
+
+        function checkUser({name, age}){
+            console.log(`Name of user:${name}, Age: ${age}`);
+        }
+
+        checkUser(person2);
+        
+
+    </script>
+</body>
+</html>
